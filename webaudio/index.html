@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<script type="text/javascript">
+			var freqArray = [587, 740, 880, 1175];    
+
 			var freq;
 			var context = new webkitAudioContext();
 
@@ -8,7 +10,7 @@
 				var sinewave = new SineWave(context);
 				sinewave.play();
 				setInterval(function() {sinewave.pause()},600);
-				freq = Math.random()*1000;
+				freq = freqArray[Math.floor(Math.random() * freqArray.length)];
 			}
 			
 			SineWave = function(context, freq) {
