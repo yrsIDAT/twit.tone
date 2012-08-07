@@ -1,0 +1,73 @@
+    	@import url(http://fonts.googleapis.com/css?family=Metrophobic|Special+Elite);
+    
+    	body {
+    		background: #f0f0f0 url(back.png);
+	    	font-family: 'Metrophobic', sans-serif;
+	    	margin: 0;
+	    	padding: 0;
+    	}
+    	
+    	#faubody {
+    		height: 100%;
+    		position: absolute;
+    		top: 0;
+	    	width: 100%;
+	    	z-index: 1;
+    	}
+    	
+    	#header {
+    		margin: 30px 0 0 0;
+    		text-align: center;
+	    	width: 100%;
+    	}
+    	
+    	#header-inner {
+	    	margin: 0 auto;
+	    	position: relative;
+    		text-align: left;
+	    	width: 800px;
+	    	z-index: 2;
+    	}
+    
+    	h1 {
+	    	margin: 0;
+	    	padding: 0;
+	    	font-family: 'Metrophobic', sans-serif;
+	    	font-size: 50px;
+	    	font-weight: 400;
+	    	width: 800px;
+    	}
+    	
+    	p {
+	    	font-family: 'Special Elite', 'Metrophobic', sans-serif;
+	    	font-weight: 400;
+    	}
+    
+    	#container {
+	    	margin: 0 auto;
+	    	width: 280px;
+    	}
+    	
+    	.inner-container {
+    		background: crimson url(back2.png);
+    		box-shadow:  0 0 30px 10px rgba(0, 0, 0, 0.1) inset;
+    		-webkit-box-shadow:  0 0 30px 10px rgba(0, 0, 0, 0.1) inset;
+    		font-family: sans-serif;
+    		height: 160px;
+    		margin: 20px 0 0 0;
+	    	padding: 120px 10px 10px 10px;
+	    	position: relative;
+	    	width: 280px;
+	    	text-align:center;
+	    	z-index: 20;
+	    	-webkit-transition: all 500ms;
+	    	-moz-transition: all 500ms;
+	    	-ms-transition: all 500ms;
+	    	-o-transition: all 500ms;
+	    	transition: all 500ms;
+    	}
+    	
+    	.inner-container:hover {
+    		box-shadow:  0 0 20px 10px rgba(0, 0, 0, 0.5) inset;
+    		-webkit-box-shadow:  0 0 20px 10px rgba(0, 0, 0, 0.5) inset;
+    	}
