@@ -10,7 +10,7 @@
   $count=0;
  foreach ($raw["FEED"]["ENTRY"] as $entry) {
     $timestamp=strtotime($entry["PUBLISHED"]);
-    if ($timestamp <= strtotime('-2 minutes')) {
+    if ($timestamp <= strtotime('-5 minutes')) {
     }
     else{;
     $count=$count+1;}
@@ -20,7 +20,7 @@ $atom = new myAtomParser($url);
   $output = $atom->getOutput();
   if ($count>0){
   echo $output.PHP_EOL.PHP_EOL.PHP_EOL;
-  print_r($atom->getRawOutput());
+  //print_r($atom->getRawOutput());
   }else{
   echo "no feeds in the last 5 minutes";}
 ?>
