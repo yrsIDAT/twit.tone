@@ -142,19 +142,18 @@
       extract($data);
       if(!$TITLE) return;
 
-      $this->retval .=  '<div class="tweet"><p><b>';
-      if($LINK) $this->retval .=  "<a href=\"$LINK\" target=\"_blank\">";
-      $this->retval .= stripslashes($TITLE);
+      $this->retval .=  '<div class="tweet-container">';
+      if($LINK) $this->retval .=  "<a href=\"$LINK\" target=\"_blank\">-&gt;";
+      //$this->retval .= stripslashes($TITLE);
       if($LINK) $this->retval .= "</a>";
-      $this->retval .=  "</b>";
-      if($ISSUED) $this->retval .= " <small>($ISSUED)</small>";
-      $this->retval .=  "</p></div>\n";
+      if($ISSUED) $this->retval .= "<small>($ISSUED)</small>";
+      $this->retval .=  "\n";
 
       if($AUTHOR) {
         $this->retval .=  "<P><b>Author:</b> " . stripslashes($AUTHOR['NAME']) . "</P>\n\n";
       }
       if($CONTENT) {
-        $this->retval .=  "<P>" . stripslashes($CONTENT) . "</P>\n\n";
+        $this->retval .=  '<div class="tweet"><P>' . stripslashes($CONTENT) . '</P></div></div>';
       } elseif($SUMMARY) {
         $this->retval .=  "<P>" . stripslashes($SUMMARY) . "</P>\n\n";
       }
