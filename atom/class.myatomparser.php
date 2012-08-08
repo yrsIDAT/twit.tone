@@ -142,7 +142,7 @@
       extract($data);
       if(!$TITLE) return;
 
-      $this->retval .=  "<div class="tweet"><p><b>";
+      $this->retval .=  '<div class="tweet"><p><b>';
       if($LINK) $this->retval .=  "<a href=\"$LINK\" target=\"_blank\">";
       $this->retval .= stripslashes($TITLE);
       if($LINK) $this->retval .= "</a>";
