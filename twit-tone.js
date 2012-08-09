@@ -1,8 +1,12 @@
 			function foreach(array) {
 				for(var i=0;i<array.length;i++){
-					blip(array[i]);
-					
+					setTimeout(carry(array[i], 300));
 				}
+			}
+			
+			function carry(array) {
+				alert(array);
+				blip(array);
 			}
 			
 			var freq;
@@ -14,7 +18,6 @@
 				sinewave.play();
 				setInterval(function() {sinewave.pause()},100);
 				document.getElementById('hz').innerHTML = freq+"Hz";
-				
 			}
 			
 			SineWave = function(context, freq) {
