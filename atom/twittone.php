@@ -6,6 +6,7 @@ class twitTone {
   date_default_timezone_set('UTC');
   $this->twitter_hash=$hash;
   $this->debug=0;
+  $this->time_limit="-5 minutes";
   }
   private function getFeeds($time) {
   $t_hash=$this->twitter_hash;
@@ -18,7 +19,7 @@ class twitTone {
   }
   
   public function returnTweets() {
-  $count=$this->getFeeds("-5 minutes");
+  $count=$this->getFeeds($this->time_limit);
   $url="http://search.twitter.com/search.atom?q=".$this->twitter_hash."&rpp=".$count;
   if ($this->debug>0){echo $url."<br>";}
   $this->atom=new myAtomParser($url);

@@ -2,7 +2,7 @@
 to use:
 initialise connection with load() reccommended putting in <body onload="load()" ....
 twitTone function:
- ('twitter feed (string OR array)', 'php twitTone function(string OR array)', 'function to return array')
+ ('twitter feed (string OR array)', 'php twitTone function(string OR array)', 'function to return the response', 'array of key:value to be sent to php')
 ignore function wait() unless debugging
 
 */
@@ -10,12 +10,13 @@ function load() {//load new http object on body onload
 if (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
 else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}}
 
-function twitTone(hash, func, callback) {//send request to php
+function twitTone(hash, func, callback, dict) {//send request to php
 resp=function() {wait(this, callback);}
 xmlhttp.onreadystatechange=function(){if (xmlhttp.readyState==4 && xmlhttp.status==200){
 resp.call(xmlhttp.responseText);
 }}
-xmlhttp.open("GET","atom/response.php?twit="+hash+"&func="+func,true);
+var extra="";if (dict){extra="&vars="+dict;}
+xmlhttp.open("GET","atom/response.php?twit="+hash+"&func="+func+extra,true);
 xmlhttp.send();
 }
 
