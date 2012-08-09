@@ -66,6 +66,6 @@
 			}
 
 			SineWave.prototype.pause = function() {
-				//pause(1);
+				pause(1);
 				this.node.disconnect();
 			}
