@@ -4,11 +4,9 @@
     <title>twit.tone</title>
     <link href="main.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="twit-tone.js"></script>
-    <script type="text/javascript">
-    	
-    </script>
+    <script type="text/javascript" src="atom/atom.js"></script>
   </head>
-  <body>
+  <body onload="load()">
   	<div id="header">
   		<div id="header-inner">
   		<h1>twit.tone</h1>
@@ -18,6 +16,7 @@
   		</div>
   	</div>
   	<div id="container">
+        <img src="http://logd.tw.rpi.edu/files/loading.gif" style="display:none;height:100px;width:100px" id="loading" />
   		<div class="inner-container" onclick="javascript:blip();">
   			Click me.<br/>
     		<label id="hz" for="freq">Hz</label>
