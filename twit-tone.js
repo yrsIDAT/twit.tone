@@ -1,13 +1,15 @@
-			var freqArray = [587, 740, 880, 1175];    
-
+			function foreach(array) {
+			  for(i=0;i++;i=>array.length){
+				  console.log(array[i]);
+			  }		
+			
 			var freq;
 			var context = new webkitAudioContext();
 
 			function blip() {
 				var sinewave = new SineWave(context);
 				sinewave.play();
-				setInterval(function() {sinewave.pause()},600);
-				freq = freqArray[Math.floor(Math.random() * freqArray.length)];
+				setInterval(function() {sinewave.pause()},700);
 				document.getElementById('hz').innerHTML = freq+"Hz";
 			}
 			

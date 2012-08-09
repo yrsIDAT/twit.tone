@@ -120,7 +120,7 @@
       if($TITLE) {
         // display feed information
         $this->retval .= "<h1>";
-        if($LINK) $this->retval .= "<a href=\"$LINK\" target=\"_blank\">";
+        if($LINK) $this->retval .= "<a href=\"$LINK\" target=\"_blank\">#";
         $this->retval .= stripslashes($TITLE);
         if($LINK) $this->retval .= "</a>";
         $this->retval .= "</h1>\n";
