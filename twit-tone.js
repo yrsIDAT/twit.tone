@@ -1,16 +1,20 @@
 			function foreach(array) {
-			  for(i=0;i++;i=>array.length){
-				  console.log(array[i]);
-			  }		
+				for(var i=0;i<array.length;i++){
+					blip(array[i]);
+					
+				}
+			}
 			
 			var freq;
 			var context = new webkitAudioContext();
 
-			function blip() {
+			function blip(freqq) {
+				freq = freqq;
 				var sinewave = new SineWave(context);
 				sinewave.play();
-				setInterval(function() {sinewave.pause()},700);
+				setInterval(function() {sinewave.pause()},100);
 				document.getElementById('hz').innerHTML = freq+"Hz";
+				
 			}
 			
 			SineWave = function(context, freq) {
