@@ -3,27 +3,27 @@
 	var beepInterval=200
 	var beepLast=0
 	
-	var beepStack=[1000,900]
+	var beepStack=[0, 0]
 	
-	function beepSound(freq) {
-    blip(freq)
+	function beepSound(freq, d) {
+    blip(freq, d)
 	}
 	
-	function think() {
+	function think(d) {
 		curTime=curTime+1
 		if (curTime>beepLast+beepInterval && beepStack.length>0) { //Items in array and we have waited for beep
 			var curSound=beepStack[0]
-			beepSound(curSound)
+			beepSound(curSound, d)
 			beepStack.splice(0,1)
 			beepLast=curTime
 		}
 	}
-	setInterval(function(){think()},1) //Call every millisecond
+    setInterval(function(){think(parseInt(document.getElementById('duration').value))},1)
 			var freq;
 			var context = new webkitAudioContext();
 
 			function blip(freqq, delay) {
-				freq = freqq;if(!delay){var delay=100;}
+				freq = freqq;if(!delay){var delay=200;}
 				var sinewave = new SineWave(context);
 				sinewave.play();
 				setTimeout(function() {sinewave.pause()},delay);
