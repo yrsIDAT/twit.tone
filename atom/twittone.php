@@ -13,6 +13,7 @@ class twitTone {
   $data=new myAtomParser("http://search.twitter.com/search.atom?q=$t_hash&rpp=100");
   $raw=$data->getRawOutput();
   $count=0;
+  if ($this->debug>1){print_r($raw);}
   foreach ($raw["FEED"]["ENTRY"] as $entry){$ts=strtotime($entry["PUBLISHED"]);if($ts<=strtotime($time)){}else{$count=$count+1;}}
   if ($this->debug>0){echo $count."<br>";}
   return $count;
@@ -24,7 +25,7 @@ class twitTone {
   if ($this->debug>0){echo $url."<br>";}
   $this->atom=new myAtomParser($url);
   $output = $this->atom->getOutput();
-  if ($count>0){return $output;}else{return "no feeds in the last 5 minutes";}
+  if ($count>0){return $output;}else{return "no feeds in the past ".substr($this->time_limit, 1);}
   }
   
   public function countChars() {

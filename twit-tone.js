@@ -18,8 +18,8 @@
 			beepLast=curTime
 		}
 	}
-    setInterval(function(){think(parseInt(document.getElementById('duration').value))},1)
-			var freq;
+    function begin(){setInterval(function(){think(parseInt(document.getElementById('duration').value))},1);}
+    var freq;
 			var context = new webkitAudioContext();
 
 			function blip(freqq, delay) {
