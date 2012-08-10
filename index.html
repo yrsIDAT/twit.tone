@@ -6,6 +6,9 @@
     <script type="text/javascript" src="twit-tone.js"></script>
     <script type="text/javascript" src="atom/atom.js"></script>
     <script type="text/javascript">
+    function listen() {
+    twitTone(document.getElementById('feed').value, 'countChars', function(){beep(this);}, 'time_limit:-'+document.getElementById('time').value)
+    }
     function beep(val) {
     var beeps=val.toString().split(",");
     for (var i=0;i<beeps.length;i++) 
@@ -13,24 +16,34 @@
     beepStack.push(beeps[i])
     }
    }
+   function auto(mode) {
+   if (mode=="on") {
+   listen();
+   var auto=setInterval(function(){listen()}, 5000);
+   } else if (mode=="off") {
+   clearInterval(auto)
+   }
+   }
     </script>
   </head>
   <body onload="load();">
   	<div id="header">
   		<div id="header-inner">
   		<h1>twit.tone</h1>
-   		<p>I started the twit.tone project on Monday the 6th of August 2012 as part of YRS.</p>
+   		<p>The twit.tone project was started on Monday the 6th of August 2012 by Simon Barnes and Sam Wray as part of YRS.</p>
 
-  		<p>Currently only working in WebKit browsers, the premise of twit.tone is to enable the user to search for a one or more hashtags on Twitter, return results to create representational data, then generate a piece of audio from the result. To achieve a more 'flowing' piece, the user can enable a 'real-time' mode for constant changing audio on trending hashtags.</p>
+  		<p>Currently only working in WebKit browsers, the premise of twit.tone is to enable the user to search for a one or more hashtags on Twitter, return results to create representational data, then generate a piece of audio from the result. To achieve a more 'flowing' piece, the user can enable a 'real-time' mode for constant changing audio on trending hashtags.<br>Limitations: can only get the last 100 tweets</p>
   		</div>
   	</div>
   	<div id="container">
-        <img src="http://logd.tw.rpi.edu/files/loading.gif" style="display:none;height:100px;width:100px" id="loading" />
-        
   		<div class="inner-container">
-            <label>Duration</label><input type="text" id="duration" value="200" size="4"><br><br>
-            <label>Twitter Feed</label><input type="text" id="feed">
-                   <input type="button" value="click!!" onclick="twitTone(document.getElementById('feed').value, 'countChars', function(){beep(this);})">
+            <label>Tone Duration</label><input type="text" id="duration" value="200" size="4"><br>
+            <label>In the past:</label><input type="text" id="time" value="5 minutes"><br><br>
+            <label>Hashtag(s)</label><input type="text" id="feed">
+                   <input type="button" value="Listen!" onclick="listen();">
+                   <br><label>auto mode:<input type="radio" name="auto" onclick="auto('on')">ON &nbsp; <input type="radio" name="auto" checked="true" onclick="auto('off')">OFF
+                   <br>
+                   <img src="http://logd.tw.rpi.edu/files/loading.gif" style="display:none; height:32px; width:32px; margin-left: auto; margin-right: auto;" id="loading" />
                    <br>
             <label id="hz" for="freq">Hz</label>
     	</div>
