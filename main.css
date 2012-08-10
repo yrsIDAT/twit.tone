@@ -1,4 +1,4 @@
-    	@import url(http://fonts.googleapis.com/css?family=Metrophobic|Special+Elite);
+@import url(http://fonts.googleapis.com/css?family=Metrophobic|Special+Elite);
     
     	body {
     		background: #f0f0f0 url(back.png);
@@ -55,7 +55,7 @@
     		font-family: sans-serif;
     		height: 160px;
     		margin: 20px 0 0 0;
-	    	padding: 120px 10px 10px 10px;
+	    	padding: 50px 10px 30px 10px;
 	    	position: relative;
 	    	width: 340px;
 	    	text-align:center;

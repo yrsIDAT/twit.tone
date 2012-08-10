@@ -12,6 +12,7 @@ else{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}}
 
 function twitTone(hash, func, callback, dict) {//send request to php
 var img=document.getElementById("loading").style;
+document.getElementById('hz').style.display="none";
 img.display="block";img.textAlign="center";
 resp=function() {recieve(this, callback);}
 xmlhttp.onreadystatechange=function(){if (xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -25,6 +26,7 @@ xmlhttp.send();
 function recieve(data, callback){//recieve response and push to array
 var arr=new Array();
 document.getElementById("loading").style.display="none";
+document.getElementById('hz').style.display="block";
 var newval=data.split(",");
 data="";
 for (var i=1;i<=newval.length-1;i++) {
