@@ -17,14 +17,13 @@
     }
    }
    function auto(mode) {
-   if (mode=="on") {
+   if (document.getElementById("auto").checked==true) {
    listen();
-   if (document.getElementById('auto').checked==true) {
-   var auto=setInterval(function(){listen()}, 5000);}
-   } else if (mode=="off") {
-   clearInterval(auto)
+   var auto=setInterval(function(){listen()}, 5000);
    }
-   }
+   else {
+   history.go(0)
+   }}
     </script>
   </head>
   <body onload="load();begin()">
@@ -42,7 +41,7 @@
             <label>In the past:</label><input type="text" id="time" value="5 minutes"><br><br>
             <label>Hashtag(s)</label><input type="text" id="feed">
                    <input type="button" value="Listen!" onclick="listen();">
-                   <br><label>auto mode:<input type="radio" name="auto" onclick="auto('on')" id="auto">ON &nbsp; <input type="radio" name="auto" checked="true" onclick="auto('off')" disabled="true">OFF
+                   <br><label>auto mode:<input type="radio" name="auto" onclick="auto('on');" id="auto">ON &nbsp; <input type="radio" name="auto" checked="true" onclick="auto('off')">OFF
                    <img src="http://logd.tw.rpi.edu/files/loading.gif" style="display:none; height:32px; width:32px; margin-left: auto; margin-right: auto;" id="loading" />
                    <br><br>
             <label id="hz" for="freq">Hz</label>

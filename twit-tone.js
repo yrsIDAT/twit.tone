@@ -2,9 +2,8 @@
 	
 	var beepInterval=200
 	var beepLast=0
-	
-	var beepStack=[0, 0]
-	
+	var beepStack=[0]
+    
 	function beepSound(freq, d) {
     blip(freq, d)
 	}
@@ -45,15 +44,12 @@
 				for (var i = 0;  i < data.length; i++) {
 					data[i] = Math.sin(k * this.x++);
 				}
-                //status("playing")
 			}
 
 			SineWave.prototype.play = function() {
 				this.node.connect(this.context.destination);
-                //status("play")
 			}
 
 			SineWave.prototype.pause = function() {
 				this.node.disconnect();
-               // status("pause");
 			}
